@@ -41,35 +41,33 @@ if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
 
 
 $.ajax({
-    url: 'https://raw.githubusercontent.com/sqrtxx/benritools/master/ouen.txt',
-    type: 'GET',
-    success: function(data){
+  url: 'https://raw.githubusercontent.com/sqrtxx/benritools/master/ouen.txt',
+  type: 'GET',
+  success: function(data){
 
-      var text = data.replace(/\n/g, ',').replace(/[^0-9,]/g, '').toString();
-      var project_ids = text.substr( 0, text.length-1 ).split(',');
-      var project_id = location.pathname.replace(/[^0-9]/g,"");
-      var first_project_id = project_ids[0];
+    var text = data.replace(/\n/g, ',').replace(/[^0-9,]/g, '').toString();
+    var project_ids = text.substr( 0, text.length-1 ).split(',');
+    var project_id = location.pathname.replace(/[^0-9]/g,"");
+    var first_project_id = project_ids[0];
 
-      if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
-        window.location = "https://www.wantedly.com/projects/" + first_project_id;
+    if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
+      window.location = "https://www.wantedly.com/projects/" + first_project_id;
+    }
+
+    if(project_ids.indexOf(project_id) >= 0){
+      if($('div.disabled.wt-ui-support-button').length){
+      }else{
+        GoForIt();
       }
-
-      if(project_ids.indexOf(project_id) >= 0){
-        if($('div.disabled.wt-ui-support-button').length){
+      setTimeout(function() {
+        if(project_ids.indexOf(project_id) + 1 != project_ids.length){
+          var index = project_ids.indexOf(project_id)
+          var next_project_number = project_ids[index + 1]
+          window.location = "https://www.wantedly.com/projects/" + next_project_number;
         }else{
-          GoForIt();
+          return false;
         }
-        setTimeout(function() {
-          if(project_ids.indexOf(project_id) + 1 != project_ids.length){
-            var index = project_ids.indexOf(project_id)
-            var next_project_number = project_ids[index + 1]
-            window.location = "https://www.wantedly.com/projects/" + next_project_number;
-          }else{
-            return false;
-          }
-        }, 6000)
-      }
+      }, 6000)
     }
   }
 })
-
