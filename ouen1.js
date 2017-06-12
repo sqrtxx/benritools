@@ -27,9 +27,9 @@ function GoForIt() {
   }, 2000);
 };
 
-if (location.pathname.match(/^\/companies\/estado\/projects?$/)) {
+if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
   GoForIt();
-  window.location = "https://www.wantedly.com/companies/buysell-technologies/projects"
+  window.location = "https://www.wantedly.com/companies/bizcast/projects"
   window.alert("aaaa");
 }
 
