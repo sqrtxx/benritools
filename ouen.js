@@ -2,14 +2,19 @@ if (location.pathname.match(/^\/companies\/(bizcast|buysell-technologies)\/proje
   setTimeout(function() {
     if ($(".dialog-project-support").length === 0) {
       $(".project-support-link .wt-icon.wt-icon-support:first").click();
+      console.log("11111111111111111111111111111111111111111");
     }
   }, 1000);
   setTimeout(function(){
     $(".data-qtip input:checkbox:lt(1)").each(function(){if(this.checked){this.click()}});
     $(".data-qtip input:checkbox:lt(2)").each(function(){if(this.checked){this.click()}});
     $(".wt-ui-button.ng-binding")[0].click();
+    console.log("22222222222222222222222222222222222222");
   }, 2000);
+  console.log("333333333333333333333333333333333333333333");
 }
+
+console.hoge("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 
 if(location.pathname.match(/projects\/\d+/)){
   $.ajax({
