@@ -15,6 +15,7 @@
 //  ６月１１日Bizcast→buysell-technologies→他の応援プロジェクトへ
 
 function GoForIt() {
+  if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
   setTimeout(function() {
     if ($(".dialog-project-support").length === 0) {
       $(".project-support-link .wt-icon.wt-icon-support:first").click();
@@ -25,6 +26,7 @@ function GoForIt() {
     $(".data-qtip input:checkbox:lt(2)").each(function(){if(this.checked){this.click()}});
     $(".wt-ui-button.ng-binding")[0].click();
   }, 2000);
+ }
 };
 
 if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
