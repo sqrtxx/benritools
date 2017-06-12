@@ -27,7 +27,7 @@ function GoForIt() {
   }, 2000);
 };
 
-if (location.pathname.match(/^\/companies\/eversense-co\/projects?$/)) {
+if (location.pathname.match(/^\/companies\/estado\/projects?$/)) {
   GoForIt();
   window.location = "https://www.wantedly.com/companies/buysell-technologies/projects"
   window.alert("aaaa");
