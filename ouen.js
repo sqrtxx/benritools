@@ -52,7 +52,7 @@ $.ajax({
 
       if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
         window.location = "https://www.wantedly.com/projects/" + first_project_id;
-      end
+      }
 
       if(project_ids.indexOf(project_id) >= 0){
         if($('div.disabled.wt-ui-support-button').length){
