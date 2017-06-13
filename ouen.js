@@ -11,7 +11,15 @@
 //
 //  ６月１１日Bizcast→buysell-technologies→他の応援プロジェクトへ
 
+if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
+  GoForIt();
+  if($('div.disabled.wt-ui-support-button').length == 0) {
+    window.location = "https://www.wantedly.com/companies/buysell-technologies/projects"
+  };
+ 
+}
 
+// 応援関数
 function GoForIt() {
   setTimeout(function() {
     if ($(".dialog-project-support").length === 0) {
@@ -25,19 +33,23 @@ function GoForIt() {
   }, 2000);
 };
 
-
-if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
-  GoForIt();
-}
-
-if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
-  window.location = "https://www.wantedly.com/companies/buysell-technologies/projects"
-}
-
 if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
   GoForIt();
-}
+  if($('div.disabled.wt-ui-support-button').length == 0) {
 
+    $.ajax({
+      url: 'https://raw.githubusercontent.com/sqrtxx/benritools/master/ouen.txt',
+      type: 'GET',
+      success: function(data){
+
+        var text = data.replace(/\n/g, ',').replace(/[^0-9,]/g, '').toString();
+        var project_ids = text.substr( 0, text.length-1 ).split(',');
+        var first_project_id = project_ids[0];
+        window.location = "https://www.wantedly.com/projects/" + first_project_id;
+      }         
+    })
+  }
+}
 
 
 $.ajax({
@@ -50,9 +62,6 @@ $.ajax({
     var project_id = location.pathname.replace(/[^0-9]/g,"");
     var first_project_id = project_ids[0];
 
-    if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
-      window.location = "https://www.wantedly.com/projects/" + first_project_id;
-    }
 
     if(project_ids.indexOf(project_id) >= 0){
       if($('div.disabled.wt-ui-support-button').length){
