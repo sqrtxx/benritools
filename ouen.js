@@ -13,10 +13,9 @@
 
 if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
   GoForIt();
-  if ($(".project-support-link .wt-icon.wt-icon-support:first").length === 0)
+  if ($(".project-support-link .wt-icon.wt-icon-support:first").length === 0) {
     window.location = "https://www.wantedly.com/companies/buysell-technologies/projects"
-  };
- 
+  }
 }
 
 // 応援関数
@@ -35,7 +34,7 @@ function GoForIt() {
 
 if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
   GoForIt();
-  if ($(".project-support-link .wt-icon.wt-icon-support:first").length === 0)
+  if ($(".project-support-link .wt-icon.wt-icon-support:first").length === 0) {
 
     $.ajax({
       url: 'https://raw.githubusercontent.com/sqrtxx/benritools/master/ouen.txt',
