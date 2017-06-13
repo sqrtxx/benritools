@@ -1,15 +1,3 @@
-// wantedlyのcjsコード：
-//   $.ajax({
-//     url: 'https://raw.githubusercontent.com/sqrtxx/benritools/master/ouen.js',
-//     type: 'GET',
-//     success: function(data){
-//       eval(data);
-//     }
-//   })
-//
-// wantedly応援先一覧：https://raw.githubusercontent.com/sqrtxx/benritools/master/ouen.txt
-//
-//  ６月１１日Bizcast→buysell-technologies→他の応援プロジェクトへ
 
 if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
   GoForIt();
