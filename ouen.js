@@ -13,7 +13,7 @@
 
 if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
   GoForIt();
-  if($('div.disabled.wt-ui-support-button').length == 0) {
+  if ($(".dialog-project-support").length !== 0) {
     window.location = "https://www.wantedly.com/companies/buysell-technologies/projects"
   };
  
@@ -35,7 +35,7 @@ function GoForIt() {
 
 if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
   GoForIt();
-  if($('div.disabled.wt-ui-support-button').length == 0) {
+  if ($(".dialog-project-support").length !== 0) {
 
     $.ajax({
       url: 'https://raw.githubusercontent.com/sqrtxx/benritools/master/ouen.txt',
