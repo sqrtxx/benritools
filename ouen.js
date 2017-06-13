@@ -55,7 +55,7 @@ $.ajax({
       }else{
         GoForIt();
       }
-      setTimeout(function() {
+      if ($(".project-support-link").length === 0) {
         if(project_ids.indexOf(project_id) + 1 != project_ids.length){
           var index = project_ids.indexOf(project_id)
           var next_project_number = project_ids[index + 1]
@@ -63,7 +63,7 @@ $.ajax({
         }else{
           return false;
         }
-      }, 6000)
+      }
     }
   }
 })
