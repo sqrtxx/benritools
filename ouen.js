@@ -61,6 +61,7 @@ $.ajax({
           var next_project_number = project_ids[index + 1]
           window.location = "https://www.wantedly.com/projects/" + next_project_number;
         }else{
+          alert('今日も応援ありがとうございました！')
           return false;
         }
       }
