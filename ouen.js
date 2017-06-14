@@ -33,11 +33,10 @@ if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
         var project_ids = text.substr( 0, text.length-1 ).split(',');
         var first_project_id = project_ids[0];
         window.location = "https://www.wantedly.com/projects/" + first_project_id;
-      }         
+      }
     })
   }
 }
-
 
 $.ajax({
   url: 'https://raw.githubusercontent.com/sqrtxx/benritools/master/ouen.txt',
@@ -48,7 +47,6 @@ $.ajax({
     var project_ids = text.substr( 0, text.length-1 ).split(',');
     var project_id = location.pathname.replace(/[^0-9]/g,"");
     var first_project_id = project_ids[0];
-
 
     if(project_ids.indexOf(project_id) >= 0){
       if($('div.disabled.wt-ui-support-button').length){
@@ -61,6 +59,9 @@ $.ajax({
           var next_project_number = project_ids[index + 1]
           window.location = "https://www.wantedly.com/projects/" + next_project_number;
         }else{
+          if (location.pathname.match(/^\/projects\/106526$/)) {
+            alert('応援完了です！\n本日もご協力ありがとうございました！')
+          }
           return false;
         }
       }
