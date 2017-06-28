@@ -59,7 +59,7 @@ $.ajax({
           var next_project_number = project_ids[index + 1]
           window.location = "https://www.wantedly.com/projects/" + next_project_number;
         }else{
-          if (location.pathname.match(/^\/projects\/107352$/)) {
+          if (location.pathname.match(/^\/projects\/108577$/)) {
             alert('応援完了です！\n本日もご協力ありがとうございました！')
           }
           return false;
