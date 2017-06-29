@@ -20,6 +20,27 @@ function GoForIt() {
   }, 2000);
 };
 
+
+
+// プロジェクトを一括応援（/^\/companies\/hogehoge\/projects?$/))に利用可能。
+// GoForItは-https://www.wantedly.com/projects/100406のようなものに対応する。
+// TODO  プロフィールが更新されましたに対応する。
+function AllGoFotIt() {
+  $('.projects-index-single').each(function(){
+      var project_id = $(this).data('project-id');
+      var json = {"project_support":{"message":"","project_id": project_id,"post_to_fb_wall":false,"post_to_twitter":false,"post_to_linkedin":false}};
+      $.ajax({
+    type:"post",
+    url:"/projects/" + project_id + "/supports",
+    data:JSON.stringify(json),
+    contentType: 'application/json',
+    dataType: "json"
+      });
+  });
+}
+
+
+
 if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
   GoForIt();
   if ($(".project-support-link").length === 0) {
