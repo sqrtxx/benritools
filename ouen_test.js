@@ -37,6 +37,7 @@ function GoForIt() {
         dataType: "json"
     });
   });
+  location.reload();
 };
 
 
@@ -56,6 +57,7 @@ function AllGoForIt() {
         dataType: "json"
       });
     });
+  location.reload();
 }
 
 if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
