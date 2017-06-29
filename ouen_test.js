@@ -5,9 +5,10 @@ if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
 // if ($(".project-support-link").length === 0) {
 //    return false;
 //  }
-
-  AllGoForIt();
-
+  if ($(".project-support-link").length != 0) {
+    AllGoForIt();
+  }
+  
   if ($(".project-support-link").length === 0) {
     window.location = "https://www.wantedly.com/companies/buysell-technologies/projects"
   }
@@ -61,7 +62,11 @@ function AllGoForIt() {
 }
 
 if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
-  AllGoForIt();
+  
+  if ($(".project-support-link").length != 0) {
+    AllGoForIt();
+  }
+  
   if ($(".project-support-link").length === 0) {
 
     $.ajax({
@@ -91,7 +96,9 @@ $.ajax({
     if(project_ids.indexOf(project_id) >= 0){
       if($('div.disabled.wt-ui-support-button').length){
       }else{
-        GoForIt();
+        if ($(".project-support-link").length != 0) {
+          AllGoForIt();
+        }
       }
       if ($(".project-support-link").length === 0) {
         if(project_ids.indexOf(project_id) + 1 != project_ids.length){
