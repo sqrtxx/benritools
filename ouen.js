@@ -1,6 +1,7 @@
 
 if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
 
+// 応援済みであれば終了
   if ($(".project-support-link").length === 0) {
     return false;
   }
@@ -28,7 +29,7 @@ function GoForIt() {
 
 
 
-// プロジェクトを一括応援（/^\/companies\/hogehoge\/projects?$/))に利用可能。
+// AllGoForItはプロジェクトを一括応援（/^\/companies\/hogehoge\/projects?$/))に利用可能。
 // GoForItは-https://www.wantedly.com/projects/100406のようなものに対応する。
 // TODO  プロフィールが更新されましたに対応する。
 function AllGoForIt() {
@@ -93,3 +94,4 @@ $.ajax({
     }
   }
 })
+
