@@ -1,6 +1,13 @@
 
 if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
-  GoForIt();
+
+// 応援済みであれば終了
+  if ($(".project-support-link").length === 0) {
+    return false;
+  }
+
+  AllGoForIt();
+
   if ($(".project-support-link").length === 0) {
     window.location = "https://www.wantedly.com/companies/buysell-technologies/projects"
   }
@@ -20,8 +27,27 @@ function GoForIt() {
   }, 2000);
 };
 
+
+
+// AllGoForItはプロジェクトを一括応援（/^\/companies\/hogehoge\/projects?$/))に利用可能。
+// GoForItは-https://www.wantedly.com/projects/100406のようなものに対応する。
+// TODO  プロフィールが更新されましたに対応する。
+function AllGoForIt() {
+    $('.projects-index-single').each(function(){
+      var project_id = $(this).data('project-id');
+      var json = {"project_support":{"message":"","project_id": project_id,"post_to_fb_wall":false,"post_to_twitter":false,"post_to_linkedin":false}};
+      $.ajax({
+        type:"post",
+        url:"/projects/" + project_id + "/supports",
+        data:JSON.stringify(json),
+        contentType: 'application/json',
+        dataType: "json"
+      });
+    });
+}
+
 if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
-  GoForIt();
+  AllGoForIt();
   if ($(".project-support-link").length === 0) {
 
     $.ajax({
