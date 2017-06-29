@@ -97,7 +97,7 @@ $.ajax({
       if($('div.disabled.wt-ui-support-button').length){
       }else{
         if ($(".project-support-link").length != 0) {
-          AllGoForIt();
+          GoForIt();
         }
       }
       if ($(".project-support-link").length === 0) {
