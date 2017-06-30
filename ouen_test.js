@@ -1,5 +1,5 @@
 
-if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
+if (location.pathname.match(/^\/companies\/bizcast\/projects?$/) && ($(".project-support-link").length != 0)) {
 
   
   if ($(".project-support-link").length != 0) {
