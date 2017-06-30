@@ -2,9 +2,10 @@
 if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
 
 // 応援済みであれば終了
-// if ($(".project-support-link").length === 0) {
-//    return false;
-//  }
+ if ($(".project-support-link").length === 0) {
+    return false;
+ }
+  
   if ($(".project-support-link").length != 0) {
     AllGoForIt();
   }
