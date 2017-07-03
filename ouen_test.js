@@ -4,7 +4,7 @@ if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
     AllGoForIt();
     window.location = "https://www.wantedly.com/companies/buysell-technologies/projects"
   }
-} elseif (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
+} else if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
   if ($(".project-support-link").length != 0) {
     AllGoForIt();
     $.ajax({
@@ -86,6 +86,7 @@ function AllGoForIt() {
     });
   });
 }
+
 
 
 
