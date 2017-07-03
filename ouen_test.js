@@ -24,9 +24,9 @@ if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
     type: 'GET',
     success: function(data){
       var urls     = data.replace(/\n/g, ',').trim(',').split(',');
-      console.log(urls);
-      var url_idx = urls.indexOf(location.pathname);
-      console.log(url_idx)
+      
+      var url_idx = urls.indexOf(location.href);
+      
       if (url_idx != -1 && !$('div.disabled.wt-ui-support-button').length && $(".project-support-link").length) {
         GoForIt();
         if (urls.length - 1 != url_idx) {
