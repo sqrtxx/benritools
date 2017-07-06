@@ -18,7 +18,7 @@ if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
           var json = {"project_support":{"message":"","project_id": project_id,"post_to_fb_wall":false,"post_to_twitter":false,"post_to_linkedin":false}};
           $.ajax({
             type:"post",
-            url:project_id[i] + "/supports",
+            url:urls[i] + "/supports",
             data:JSON.stringify(json),
             contentType: 'application/json',
             dataType: "json"
