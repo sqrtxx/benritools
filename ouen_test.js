@@ -42,33 +42,20 @@ if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
 
 function GoForIt() {
 
-  var arr = []
+var arr = []
 
-  $('.wt-button.blue.noborder.project-support-link.ng-isolate-scope').each(function(){
-    arr.push($(this).data('project-id'))
-  });
-  
-  ouen(arr);        
-};
+$('.wt-button.blue.noborder.project-support-link.ng-isolate-scope').each(function(){
+  arr.push($(this).data('project-id'))
+});
 
-function AllGoForIt() {
- 
-  var arr = []
+ouen();
 
-  $('.projects-index-single').each(function(){
-    arr.push($(this).data('project-id'))
-  });
-
-  ouen(arr);
-
-}
-
-function ouen(arr) {
+function ouen() {
     if(arr.length==0) return;
     // 配列の先頭を使う
     param = arr[0];
      
-    //応援コード(post)
+    //TODO: 何かの処理
     console.log('ouen: ' + param);
     
     var project_id = param
@@ -87,4 +74,43 @@ function ouen(arr) {
     setTimeout(function(){
         ouen();
     },  Math.random() * 1000 + 1000 );
+}
+    
+        
+};
+
+function AllGoForIt() {
+var arr = []
+
+$('.projects-index-single').each(function(){
+  arr.push($(this).data('project-id'))
+});
+
+ouen();
+
+function ouen() {
+    if(arr.length==0) return;
+    // 配列の先頭を使う
+    param = arr[0];
+     
+    //TODO: 何かの処理
+    console.log('ouen: ' + param);
+    
+    var project_id = param
+    var json = {"project_support":{"message":"","project_id": project_id,"post_to_fb_wall":false,"post_to_twitter":false,"post_to_linkedin":false}};
+    $.ajax({
+      type:"post",
+      url:"/projects/" + project_id + "/supports",
+      data:JSON.stringify(json),
+      contentType: 'application/json',
+      dataType: "json"
+    })
+ 
+    // 処理済みのパラメータ削除
+    arr.shift();
+    // 次の回の実行予約
+    setTimeout(function(){
+        ouen();
+    },  Math.random() * 1000 + 1000 );
+}
 }
