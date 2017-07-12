@@ -27,9 +27,11 @@ if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
       var url_idx = urls.indexOf(location.href);
       
       if (url_idx != -1 && $(".project-support-link").length) {
+        GoForIt();
         if (urls.length - 1 != url_idx) {
           var next_url = urls[url_idx + 1]
-          GoForIt(next_url);
+          console.log(next_url)
+          window.location = next_url;
         } else {
           alert('応援完了です！\n本日もご協力ありがとうございました！')
         }
@@ -38,17 +40,23 @@ if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
   })
 }
 
-function GoForIt(target_url) {
 
-var arr = []
-
-$('.wt-button.blue.noborder.project-support-link.ng-isolate-scope').each(function(){
-  arr.push($(this).data('project-id'))
-});
-
-ouen(arr,target_url);
-            
+function GoForIt() {
+  $('.wt-button.blue.noborder.project-support-link.ng-isolate-scope').each(function(){
+    var project_id = $(this).data('project-id');
+    var json = {"project_support":{"message":"","project_id": project_id,"post_to_fb_wall":false,"post_to_twitter":false,"post_to_linkedin":false}};
+    $.ajax({
+        type:"post",
+        url:"/projects/" + project_id + "/supports",
+        data:JSON.stringify(json),
+        contentType: 'application/json',
+        dataType: "json"
+    });
+  });
 };
+
+
+
 
 function AllGoForIt(target_url) {
 var arr = []
