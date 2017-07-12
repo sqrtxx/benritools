@@ -87,7 +87,7 @@ function ouen(arr, target_url) {
         if ($(".project-support-link").length == 0) {
           window.location = target_url
         }
-        ouen();
+        ouen(arr);
     },  Math.random() * 1000 + 1000 );
   
   
