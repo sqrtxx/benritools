@@ -84,10 +84,10 @@ function ouen(arr, target_url) {
     arr.shift();
     // 次の回の実行予約
     setTimeout(function(){
+        ouen(arr);
         if ($(".project-support-link").length == 0) {
           window.location = target_url
         }
-        ouen(arr);
     },  Math.random() * 1000 + 1000 );
   
   
