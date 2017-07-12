@@ -1,4 +1,3 @@
-
 if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
   if ($(".project-support-link").length) {
     AllGoForIt();
@@ -6,7 +5,9 @@ if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
   }
 } else if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
   if ($(".project-support-link").length != 0) {
-    AllGoForIt();
+  $('.projects-index-single').each(function(){
+    setTimeout(AllGoForIt(), 1000)
+  });
     $.ajax({
       url: 'https://raw.githubusercontent.com/sqrtxx/benritools/master/ouen.txt',
       type: 'GET',
@@ -57,7 +58,6 @@ function GoForIt() {
 };
 
 function AllGoForIt() {
-  $('.projects-index-single').each(function(){
     var project_id = $(this).data('project-id');
     var json = {"project_support":{"message":"","project_id": project_id,"post_to_fb_wall":false,"post_to_twitter":false,"post_to_linkedin":false}};
     $.ajax({
@@ -67,5 +67,4 @@ function AllGoForIt() {
       contentType: 'application/json',
       dataType: "json"
     });
-  });
 }
