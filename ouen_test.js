@@ -82,14 +82,15 @@ function ouen(arr, target_url) {
  
     // 処理済みのパラメータ削除
     arr.shift();
+  
+    // 全てのプロジェクトが終わればurlを変更する
+    if (arr.length == 0) {
+          window.location = target_url
+    }
     // 次の回の実行予約
     setTimeout(function(){
         ouen(arr);
-        if ($(".project-support-link").length == 0) {
-          window.location = target_url
-        }
     },  Math.random() * 1000 + 1000 );
-  
-  
+ 
   
 }
