@@ -85,11 +85,11 @@ function ouen(arr, target_url) {
   
     // 全てのプロジェクトが終わればurlを変更する
     if (arr.length == 0) {
-          window.location = target_url
+    　　window.location = target_url
     }
     // 次の回の実行予約
     setTimeout(function(){
-        ouen(arr);
+        ouen(arr, target_url);
     },  Math.random() * 1000 + 1000 );
  
   
