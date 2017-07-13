@@ -32,12 +32,12 @@ if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
           var next_url = urls[url_idx + 1]
           console.log(next_url)
           window.location = next_url;
-        } else {
-          alert('応援完了です！\n本日もご協力ありがとうございました！')
-        }
-      }
+        } 
+      }　else {
+    　　　alert('応援完了です！\n本日もご協力ありがとうございました！')
     }
   })
+  
 }
 
 
