@@ -1,11 +1,13 @@
-document.body.style.backgroundColor = "Violet";
+
 
 if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
+  document.body.style.backgroundColor = "Violet";
   if ($(".project-support-link").length) {
     var next_url = "https://www.wantedly.com/companies/buysell-technologies/projects"
     AllGoForIt(next_url);
   }
 } else if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
+  document.body.style.backgroundColor = "Violet";
   if ($(".project-support-link").length != 0) {
     $.ajax({
       url: 'https://raw.githubusercontent.com/sqrtxx/benritools/master/ouen.txt',
@@ -29,6 +31,7 @@ if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
       var url_idx = urls.indexOf(location.href);
       
       if (url_idx != -1 && $(".project-support-link").length) {
+        document.body.style.backgroundColor = "Violet";
         GoForIt();
         if (urls.length - 1 != url_idx) {
           var next_url = urls[url_idx + 1]
