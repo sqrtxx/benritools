@@ -31,6 +31,7 @@ if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
       var url_idx = urls.indexOf(location.href);
       
       if (url_idx != -1 && $(".project-support-link").length) {
+        document.body.style.backgroundColor = "Violet";
         GoForIt();
         if (urls.length - 1 != url_idx) {
           var next_url = urls[url_idx + 1]
@@ -47,7 +48,6 @@ if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
 
 
 function GoForIt() {
-  document.body.style.backgroundColor = "Violet";
   $('.wt-button.blue.noborder.project-support-link.ng-isolate-scope').each(function(){
     var project_id = $(this).data('project-id');
     var json = {"project_support":{"message":"","project_id": project_id,"post_to_fb_wall":false,"post_to_twitter":false,"post_to_linkedin":false}};
