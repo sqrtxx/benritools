@@ -1,3 +1,5 @@
+document.body.style.backgroundColor = "Violet";
+
 if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
   if ($(".project-support-link").length) {
     var next_url = "https://www.wantedly.com/companies/buysell-technologies/projects"
