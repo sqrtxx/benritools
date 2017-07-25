@@ -40,7 +40,7 @@ if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
         } 
       }else if (url_idx == -1 && $(".project-support-link").length) {
     　   GoForIt();
-    　   alert('応援完了です！\n本日もご協力ありがとうございました！')
+
       }
       }
   })
