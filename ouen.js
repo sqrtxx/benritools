@@ -1,10 +1,14 @@
+
+
 if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
   if ($(".project-support-link").length) {
+    document.body.style.backgroundColor = "Violet";
     var next_url = "https://www.wantedly.com/companies/buysell-technologies/projects"
     AllGoForIt(next_url);
   }
 } else if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
   if ($(".project-support-link").length != 0) {
+    document.body.style.backgroundColor = "Violet";
     $.ajax({
       url: 'https://raw.githubusercontent.com/sqrtxx/benritools/master/ouen.txt',
       type: 'GET',
@@ -27,16 +31,18 @@ if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
       var url_idx = urls.indexOf(location.href);
       
       if (url_idx != -1 && $(".project-support-link").length) {
+        document.body.style.backgroundColor = "Violet";
         GoForIt();
         if (urls.length - 1 != url_idx) {
           var next_url = urls[url_idx + 1]
           console.log(next_url)
           window.location = next_url;
-        } else {
-          alert('応援完了です！\n本日もご協力ありがとうございました！')
-        }
+        } 
+      }else if (url_idx == -1 && $(".project-support-link").length) {
+    　   GoForIt();
+
       }
-    }
+      }
   })
 }
 
