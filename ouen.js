@@ -7,6 +7,7 @@ if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
 
 // 応援関数
 function GoForIt() {
+  document.body.style.backgroundColor = "Violet";
   setTimeout(function() {
     if ($(".dialog-project-support").length === 0) {
       $(".project-support-link .wt-icon.wt-icon-support:first").click();
