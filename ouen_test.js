@@ -22,6 +22,7 @@ if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
       }
     })
   }
+  alert('応援完了です！\n本日もご協力ありがとうございました！')
 }
 
 // 応援関数
@@ -59,4 +60,3 @@ function PostGoForIt(project_id) {
   })
 }
 
-alert('応援完了です！\n本日もご協力ありがとうございました！')
