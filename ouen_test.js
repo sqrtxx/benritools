@@ -59,4 +59,3 @@ function PostGoForIt(project_id) {
     dataType: "json"
   })
 }
-
