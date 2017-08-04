@@ -1,7 +1,28 @@
 if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
   GoForIt();
-  if ($(".project-support-link").length === 0) {
+  already_ouen_num_biz = $(".disabled .wt-icon.wt-icon-support").length
+  if (already_ouen_num_biz > 90 || $(".project-support-link").length === 0) {
     window.location = "https://www.wantedly.com/companies/buysell-technologies/projects"
+  }
+}
+
+if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
+  GoForIt();
+  already_ouen_num_sel = $(".disabled .wt-icon.wt-icon-support").length
+  if (already_ouen_num_sel > 90 || $(".project-support-link").length === 0) {
+
+    $.ajax({
+      url: 'https://raw.githubusercontent.com/sqrtxx/benritools/master/ouen.txt',
+      type: 'GET',
+      success: function(data){
+        var project_ids = data.split(/\n/g);
+        project_ids.pop();
+        setTimeout(function(){
+          project_ids.forEach(function(project_id) { PostGoForIt(project_id); })
+        }, 2000)
+        alert('応援完了です！\n本日もご協力ありがとうございました！')
+      }
+    })
   }
 }
 
@@ -20,51 +41,24 @@ function GoForIt() {
   }, 2000);
 };
 
-if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
-  GoForIt();
-  if ($(".project-support-link").length === 0) {
-
-    $.ajax({
-      url: 'https://raw.githubusercontent.com/sqrtxx/benritools/master/ouen.txt',
-      type: 'GET',
-      success: function(data){
-
-        var text = data.replace(/\n/g, ',').replace(/[^0-9,]/g, '').toString();
-        var project_ids = text.substr( 0, text.length-1 ).split(',');
-        var first_project_id = project_ids[0];
-        window.location = "https://www.wantedly.com/projects/" + first_project_id;
-      }
-    })
-  }
-}
-
-$.ajax({
-  url: 'https://raw.githubusercontent.com/sqrtxx/benritools/master/ouen.txt',
-  type: 'GET',
-  success: function(data){
-
-    var text = data.replace(/\n/g, ',').replace(/[^0-9,]/g, '').toString();
-    var project_ids = text.substr( 0, text.length-1 ).split(',');
-    var project_id = location.pathname.replace(/[^0-9]/g,"");
-    var first_project_id = project_ids[0];
-
-    if(project_ids.indexOf(project_id) >= 0){
-      if($('div.disabled.wt-ui-support-button').length){
-      }else{
-        GoForIt();
-      }
-      if ($(".project-support-link").length === 0) {
-        if(project_ids.indexOf(project_id) + 1 != project_ids.length){
-          var index = project_ids.indexOf(project_id)
-          var next_project_number = project_ids[index + 1]
-          window.location = "https://www.wantedly.com/projects/" + next_project_number;
-        }else{
-          if (location.pathname.match(/^\/projects\/106526$/)) {
-            alert('応援完了です！\n本日もご協力ありがとうございました！')
-          }
-          return false;
-        }
-      }
+function PostGoForIt(project_id) {
+  var referer = "https://www.wantedly.com/projects/" + project_id;
+  var json    = {
+    "project_support": {
+      "message":          "",
+      "project_id":       project_id,
+      "post_to_fb_wall":  false,
+      "post_to_twitter":  false,
+      "post_to_linkedin": false
     }
-  }
-})
+  };
+
+  $.ajax({
+    type:        "post",
+    url:         "/projects/" + project_id + "/supports",
+    data:        JSON.stringify(json),
+    contentType: "application/json",
+    dataType:    "json",
+    headers:     { 'X-Alt-Referer': referer }
+  })
+}
