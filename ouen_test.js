@@ -16,13 +16,15 @@ if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
       type: 'GET',
       success: function(data){
         var project_ids = data.split(/\n/g);
-        project_ids.forEach(function(val) {
-          PostGoForIt(val);
-        })
+        setTimeout(function(){
+          project_ids.forEach(function(project_id) {
+            PostGoForIt(project_id);
+          })
+        }, 2000)
+        alert('応援完了です！\n本日もご協力ありがとうございました！')
       }
     })
   }
-  alert('応援完了です！\n本日もご協力ありがとうございました！')
 }
 
 // 応援関数
@@ -41,22 +43,24 @@ function GoForIt() {
 };
 
 function PostGoForIt(project_id) {
+  var referer = "https://www.wantedly.com/projects/" + val;
   var json = {
     "project_support": {
-      "message":"",
-      "project_id": project_id,
-      "post_to_fb_wall":false,
-      "post_to_twitter":false,
-      "post_to_linkedin":false
+      "message":          "",
+      "project_id":       project_id,
+      "post_to_fb_wall":  false,
+      "post_to_twitter":  false,
+      "post_to_linkedin": false
     }
   };
 
   $.ajax({
-    type: "post",
-    url: "/projects/" + project_id + "/supports",
-    data:JSON.stringify(json),
-    contentType: 'application/json',
-    dataType: "json"
+    type:        "post",
+    url:         "/projects/" + project_id + "/supports",
+    data:        JSON.stringify(json),
+    contentType: "application/json",
+    dataType:    "json",
+    headers: { 'X-Alt-Referer': referer }
   })
 }
 
