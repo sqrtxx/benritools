@@ -18,7 +18,10 @@ if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
         var project_ids = data.split(/\n/g);
         project_ids.pop();
         setTimeout(function(){
-          project_ids.forEach(function(project_id) { PostGoForIt(project_id); })
+          project_ids.forEach(function(project_id) {
+            console.log("post to " + project_id);
+            PostGoForIt(project_id);
+          })
         }, 2000)
         alert('応援完了です！\n本日もご協力ありがとうございました！')
       }
