@@ -38,9 +38,12 @@ function GoForIt() {
     }
   }, 1000);
   setTimeout(function(){
-    $(".data-qtip input:checkbox:lt(1)").each(function(){if(this.checked){this.click()}});
-    $(".data-qtip input:checkbox:lt(2)").each(function(){if(this.checked){this.click()}});
-    $(".wt-ui-button.ng-binding")[0].click();
+    $("input#checkbox-facebook").each(function(){if(this.checked){this.click()}})
+    $("input#checkbox-twitter").each(function(){if(this.checked){this.click()}})
+    // シェアボタンを外せているか確認する余裕を持たしている
+    setTimeout(function() {
+      $("button.wt-ui-button").click();
+    }, 500);
   }, 2000);
 };
 
