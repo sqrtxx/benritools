@@ -4,7 +4,6 @@ const UnCheckedClass = ".jeNOza";
 
 if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
   loopSleep(2000);
-  window.location = "https://www.wantedly.com/companies/buysell-technologies/projects"
 }
 
 if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
