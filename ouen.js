@@ -1,6 +1,5 @@
-const BtnClass       = ".wt-icon.wt-icon-support";
-const CheckedClass   = ".hGEaZt";
-const UnCheckedClass = ".jeNOza";
+const CheckedClass   = ".fMmFRU";
+const UnCheckedClass = ".fDSBtD";
 
 if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
   loopSleep(2000);
@@ -13,8 +12,8 @@ if (location.pathname.match(/^\/companies\/buysell-technologies\/projects?$/)) {
 function loopSleep(_interval) {
   var interval = _interval;
   var loopFunc = function () {
-    ouen_btn = $(`${UnCheckedClass} ${BtnClass}`).length
-    ouen_zumi_btn = $(`${CheckedClass} ${BtnClass}`).length
+    ouen_btn = $(`span${UnCheckedClass}`).length
+    ouen_zumi_btn = $(`span${CheckedClass}`).length
     if (ouen_zumi_btn > 90 || ouen_btn === 0) {
       if (location.pathname.match(/^\/companies\/bizcast\/projects?$/)) {
         window.location = "https://www.wantedly.com/companies/buysell-technologies/projects"
@@ -38,7 +37,7 @@ function GoForIt() {
   }
   setTimeout(function() {
     if ($(".dialog-project-support").length === 0) {
-      $(`${UnCheckedClass} ${BtnClass}:first`).click();
+      $(`span${UnCheckedClass}:first`).click();
     }
   }, 1000);
   setTimeout(function(){
